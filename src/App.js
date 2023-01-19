@@ -12,10 +12,11 @@ function App() {
     <div className="App">
       <input
         type="text"
-        placeholder="Enter value"
+        placeholder="Enter something..."
         onChange={(e) => setTask(e.target.value)}
-        value={value}
+        value={task}
       />
+      <button onClick={addTask}>Add task</button>
     </div>
   );
 }
