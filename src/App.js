@@ -5,7 +5,9 @@ import './index.css'
 function App() {
   const [task,setTask] = useState([])
 
-  const 
+  const addTask = ()=>{
+    
+  }
   return (
     <div className="App">
    
