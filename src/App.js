@@ -3,17 +3,25 @@ import "./App.css";
 import "./index.css";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([{text:'test'}]);
 
   const addTask = () => {
     const text = prompt("text task");
-    setTasks([...tasks, text])
+    setTasks([...tasks, {text}])
   }; 
-  const handleDelete =(task,id)=>{
+  const handleDelete =(id)=>{
        setTasks(tasks.filter(task=>task.id !==id))
   }
-  const handleEdit =()=>{
+  const handleEdit =(id)=>{
+    const text = prompt("text task");
 
+    setTasks(tasks.map(task=>{
+        if(index === i){
+               task.text = text
+        }
+        return task 
+    }))
+      
   }
   return (
     <div className="App">
@@ -27,7 +35,7 @@ function App() {
       {tasks.map(task => (
         <ul key={task.id}>
           <li key={task.id}>
-            {task}
+            {task.text}
             <button onClick={() => handleDelete(task.id)}>Delete</button>
             <button onClick={() => handleEdit(task.id)}>Edit</button>
           </li>
