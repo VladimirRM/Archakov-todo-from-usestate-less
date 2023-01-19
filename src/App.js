@@ -3,26 +3,27 @@ import "./App.css";
 import "./index.css";
 
 function App() {
-  const [tasks, setTasks] = useState([{text:'test'}]);
+  const [tasks, setTasks] = useState([{ text: "test" }]);
 
   const addTask = () => {
     const text = prompt("text task");
-    setTasks([...tasks, {text}])
-  }; 
-  const handleDelete =(id)=>{
-       setTasks(tasks.filter(task=>task.id !==id))
-  }
-  const handleEdit =(id)=>{
+    setTasks([...tasks, { text }]);
+  };
+  const handleDelete = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+  const handleEdit = (id) => {
     const text = prompt("text task");
 
-    setTasks(tasks.map(task=>{
-        if(index === i){
-               task.text = text
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === id) {
+          task.text = text;
         }
-        return task 
-    }))
-      
-  }
+        return task;
+      })
+    );
+  };
   return (
     <div className="App">
       {/* <input
@@ -32,7 +33,7 @@ function App() {
         value={text}
       /> */}
       <button onClick={addTask}>Add task</button>
-      {tasks.map(task => (
+      {tasks.map((task) => (
         <ul key={task.id}>
           <li key={task.id}>
             {task.text}
